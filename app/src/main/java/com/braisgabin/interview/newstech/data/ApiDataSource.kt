@@ -1,11 +1,13 @@
 package com.braisgabin.interview.newstech.data
 
 import com.braisgabin.interview.newstech.entity.Photo
+import com.braisgabin.interview.newstech.utils.Mockable
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 
+@Mockable
 class ApiDataSource(
   private val restApi: RestApi,
   private val jsonAdapter: JsonAdapter<PhotoMapper>
