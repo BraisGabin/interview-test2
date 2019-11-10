@@ -2,9 +2,6 @@ package com.braisgabin.interview.newstech.data
 
 import com.braisgabin.interview.newstech.entity.Photo
 import com.squareup.moshi.Moshi
-import okio.BufferedSource
-import okio.buffer
-import okio.source
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
@@ -27,8 +24,4 @@ class PhotoMapperTest {
       )
     )
   }
-}
-
-fun Any.getResourceAsBuffer(name: String): BufferedSource {
-  return javaClass.classLoader!!.getResourceAsStream(name)!!.source().buffer()
 }
