@@ -1,0 +1,16 @@
+[
+  {
+    "albumId": 1,
+    "id": 1,
+    "title": "accusamus beatae ad facilis cum similique qui sunt",
+    "url": "url1",
+    "thumbnailUrl": "thumbnail"
+  },
+  {
+    "albumId": 1,
+    "id": 2,
+    "title": "reprehenderit est deserunt velit ipsam",
+    "url": "url2",
+    "thumbnailUrl": "thumbnail"
+  }
+]
