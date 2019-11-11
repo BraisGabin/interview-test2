@@ -13,8 +13,9 @@ import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Consumer
+import javax.inject.Inject
 
-class HomePresenter(
+class HomePresenter @Inject constructor(
   feature: HomeFeature
 ) : ViewModel() {
   private val disposable = CompositeDisposable()

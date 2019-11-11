@@ -6,10 +6,12 @@ import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
+import javax.inject.Named
 
-class HomeActor(
+class HomeActor @Inject constructor(
   private val photoUseCase: PhotosUseCase,
-  private val main: Scheduler
+  @Named("main") private val main: Scheduler
 ) : Actor<State, Action, Effect> {
 
   override fun invoke(state: State, action: Action): Observable<out Effect> {

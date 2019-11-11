@@ -6,9 +6,10 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
+import javax.inject.Inject
 
 @Mockable
-class ApiDataSource(
+class ApiDataSource @Inject constructor(
   private val restApi: RestApi,
   private val jsonAdapter: JsonAdapter<PhotoMapper>
 ) {
