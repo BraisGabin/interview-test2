@@ -3,14 +3,15 @@ package com.braisgabin.interview.newstech.data
 import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
+import com.braisgabin.interview.newstech.domain.Repository
 import com.braisgabin.interview.newstech.entity.Photo
 import io.reactivex.Flowable
 
 class DataRepository(
   private val dataSource: ApiDataSource
-) {
+) : Repository {
 
-  fun photos(): Flowable<Either<Throwable, List<Photo>>> {
+  override fun photos(): Flowable<Either<Throwable, List<Photo>>> {
     return dataSource.photos()
       .scan(emptyList<Photo>()) { list, photo ->
         /*
