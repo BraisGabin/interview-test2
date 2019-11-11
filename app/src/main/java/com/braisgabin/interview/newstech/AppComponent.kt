@@ -1,17 +1,22 @@
 package com.braisgabin.interview.newstech
 
 import android.os.Looper
+import com.braisgabin.interview.newstech.entity.Photo
 import com.braisgabin.interview.newstech.home.data.ApiDataSource
 import com.braisgabin.interview.newstech.home.data.DataRepository
+import com.braisgabin.interview.newstech.home.data.PhotoMapper
 import com.braisgabin.interview.newstech.home.data.RestApi
 import com.braisgabin.interview.newstech.home.domain.Repository
 import com.braisgabin.interview.newstech.home.presentation.MainActivity
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
 import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -86,6 +91,21 @@ abstract class AppModule {
 
     @JvmStatic
     @Provides
-    fun restApiProvider(retrofit: Retrofit): RestApi = retrofit.create()
+    fun restApiProvider(retrofit: Retrofit): RestApi {
+      return retrofit.create()
+    }
+
+    @JvmStatic
+    @Provides
+    @Reusable
+    fun moshiProvider(): Moshi {
+      return Moshi.Builder().build()
+    }
+
+    @JvmStatic
+    @Provides
+    fun photoJsonAdapterProvider(moshi: Moshi): JsonAdapter<PhotoMapper> {
+      return moshi.adapter(PhotoMapper::class.java)
+    }
   }
 }
