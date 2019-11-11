@@ -36,4 +36,9 @@ sealed class State {
   ) : State()
 }
 
-sealed class Effect
+sealed class Effect {
+  object Error : Effect()
+  object Loading : Effect()
+  object NoMoreItems : Effect()
+  data class Data(val photos: List<Photo>) : Effect()
+}
