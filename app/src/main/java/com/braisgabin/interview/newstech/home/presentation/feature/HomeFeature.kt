@@ -2,8 +2,10 @@ package com.braisgabin.interview.newstech.home.presentation.feature
 
 import com.badoo.mvicore.feature.BaseFeature
 import com.braisgabin.interview.newstech.entity.Photo
+import com.braisgabin.interview.newstech.utils.Mockable
 import io.reactivex.Observable
 
+@Mockable
 class HomeFeature(
   actor: HomeActor,
   reducer: HomeReducer
