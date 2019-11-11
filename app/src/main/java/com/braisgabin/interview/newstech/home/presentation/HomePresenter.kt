@@ -1,6 +1,7 @@
 package com.braisgabin.interview.newstech.home.presentation
 
 import androidx.lifecycle.ViewModel
+import com.braisgabin.interview.newstech.Navigator
 import com.braisgabin.interview.newstech.entity.Photo
 import com.braisgabin.interview.newstech.home.presentation.feature.HomeFeature
 import com.braisgabin.interview.newstech.home.presentation.feature.State
@@ -16,7 +17,8 @@ import io.reactivex.functions.Consumer
 import javax.inject.Inject
 
 class HomePresenter @Inject constructor(
-  feature: HomeFeature
+  feature: HomeFeature,
+  navigator: Navigator
 ) : ViewModel() {
   private val disposable = CompositeDisposable()
 
@@ -35,7 +37,7 @@ class HomePresenter @Inject constructor(
         when (intent) {
           HomeIntent.Retry -> feature.accept(Wish.Retry)
           HomeIntent.Refresh -> feature.accept(Wish.Refresh)
-          is HomeIntent.PhotoSelected -> TODO()
+          is HomeIntent.PhotoSelected -> navigator.goToDetail(intent.photo.url)
         }.exhaustive
       })
     events = relay

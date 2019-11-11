@@ -1,5 +1,7 @@
 package com.braisgabin.interview.newstech.home.presentation
 
+import com.braisgabin.interview.newstech.Navigator
+import com.braisgabin.interview.newstech.home.data.photo
 import com.braisgabin.interview.newstech.home.presentation.feature.HomeFeature
 import com.braisgabin.interview.newstech.home.presentation.feature.State
 import com.braisgabin.interview.newstech.home.presentation.feature.Wish
@@ -18,7 +20,8 @@ class HomePresenterTest {
   private lateinit var testSubscriber: TestSubscriber<State>
 
   private val feature: HomeFeature = mock()
-  private val presenter = HomePresenter(feature)
+  private val navigator: Navigator = mock()
+  private val presenter = HomePresenter(feature, navigator)
 
   @Before
   fun setUp() {
@@ -32,7 +35,7 @@ class HomePresenterTest {
 
   @After
   fun tearDown() {
-    verifyNoMoreInteractions(feature)
+    verifyNoMoreInteractions(feature, navigator)
   }
 
   @Test
@@ -47,6 +50,13 @@ class HomePresenterTest {
     presenter.events.accept(HomeIntent.Refresh)
 
     verify(feature).accept(Wish.Refresh)
+  }
+
+  @Test
+  fun sendPhotoSelected() {
+    presenter.events.accept(HomeIntent.PhotoSelected(photo("1", url = "url")))
+
+    verify(navigator).goToDetail("url")
   }
 
   @Test

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import com.braisgabin.interview.newstech.Navigator
 import com.braisgabin.interview.newstech.R
 import com.braisgabin.interview.newstech.appComponent
 import com.braisgabin.interview.newstech.entity.Photo
@@ -121,13 +122,14 @@ class MainActivity : AppCompatActivity(), PhotoAdapter.Listener {
       @Provides
       fun presenterProvider(
         activity: AppCompatActivity,
-        homeFeature: Provider<HomeFeature>
+        homeFeature: Provider<HomeFeature>,
+        navigator: Navigator
       ): HomePresenter {
         return ViewModelProviders.of(activity, object : ViewModelProvider.Factory {
 
           override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
-            return HomePresenter(homeFeature.get()) as T
+            return HomePresenter(homeFeature.get(), navigator) as T
           }
         }).get(HomePresenter::class.java)
       }
