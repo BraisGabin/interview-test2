@@ -1,4 +1,4 @@
-package com.braisgabin.interview.newstech.data
+package com.braisgabin.interview.newstech.home.data
 
 import arrow.core.left
 import arrow.core.right

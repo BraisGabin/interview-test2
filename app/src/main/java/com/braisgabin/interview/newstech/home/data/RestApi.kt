@@ -1,4 +1,4 @@
-package com.braisgabin.interview.newstech.data
+package com.braisgabin.interview.newstech.home.data
 
 import io.reactivex.Single
 import okhttp3.ResponseBody

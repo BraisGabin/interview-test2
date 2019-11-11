@@ -1,4 +1,4 @@
-package com.braisgabin.interview.newstech.domain
+package com.braisgabin.interview.newstech.home.domain
 
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
