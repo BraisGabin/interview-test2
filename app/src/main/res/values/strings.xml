@@ -1,3 +1,4 @@
 <resources>
   <string name="app_name">NewsCorpInterview</string>
+  <string name="retry">Click to retry</string>
 </resources>
