@@ -14,6 +14,7 @@ import com.braisgabin.interview.newstech.appComponent
 import com.braisgabin.interview.newstech.entity.Photo
 import com.braisgabin.interview.newstech.home.presentation.feature.HomeFeature
 import com.braisgabin.interview.newstech.home.presentation.feature.State
+import com.braisgabin.interview.newstech.utils.Presenter
 import dagger.Binds
 import dagger.BindsInstance
 import dagger.Module
@@ -27,7 +28,7 @@ import javax.inject.Provider
 class MainActivity : AppCompatActivity(), PhotoAdapter.Listener {
 
   @Inject
-  lateinit var presenter: HomePresenter
+  lateinit var presenter: Presenter<HomeIntent, State>
 
   private val disposable = CompositeDisposable()
 
@@ -114,6 +115,9 @@ class MainActivity : AppCompatActivity(), PhotoAdapter.Listener {
 
     @Binds
     abstract fun activityProvider(activity: AppCompatActivity): Activity
+
+    @Binds
+    abstract fun presenterInterfaceProvider(presenter: HomePresenter): Presenter<HomeIntent, State>
 
     @Module
     companion object {

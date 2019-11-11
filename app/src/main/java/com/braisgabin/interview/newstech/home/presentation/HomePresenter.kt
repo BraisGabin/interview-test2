@@ -6,6 +6,7 @@ import com.braisgabin.interview.newstech.entity.Photo
 import com.braisgabin.interview.newstech.home.presentation.feature.HomeFeature
 import com.braisgabin.interview.newstech.home.presentation.feature.State
 import com.braisgabin.interview.newstech.home.presentation.feature.Wish
+import com.braisgabin.interview.newstech.utils.Presenter
 import com.braisgabin.interview.newstech.utils.exhaustive
 import com.jakewharton.rxrelay2.PublishRelay
 import com.jakewharton.rxrelay2.Relay
@@ -19,11 +20,11 @@ import javax.inject.Inject
 class HomePresenter @Inject constructor(
   feature: HomeFeature,
   navigator: Navigator
-) : ViewModel() {
+) : ViewModel(), Presenter<HomeIntent, State> {
   private val disposable = CompositeDisposable()
 
-  val events: Consumer<HomeIntent>
-  val states: Flowable<State> = Observable.wrap(feature)
+  override val events: Consumer<HomeIntent>
+  override val states: Flowable<State> = Observable.wrap(feature)
     .replay(1)
     .autoConnect(1) { disposable.add(it) }
     .toFlowable(BackpressureStrategy.LATEST)
