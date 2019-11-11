@@ -1,4 +1,4 @@
-package com.braisgabin.interview.newstech.data
+package com.braisgabin.interview.newstech.home.data
 
 import com.braisgabin.interview.newstech.entity.Photo
 import okio.BufferedSource

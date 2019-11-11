@@ -1,9 +1,9 @@
-package com.braisgabin.interview.newstech.data
+package com.braisgabin.interview.newstech.home.data
 
 import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
-import com.braisgabin.interview.newstech.domain.Repository
+import com.braisgabin.interview.newstech.home.domain.Repository
 import com.braisgabin.interview.newstech.entity.Photo
 import io.reactivex.Flowable
 

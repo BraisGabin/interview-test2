@@ -1,4 +1,4 @@
-package com.braisgabin.interview.newstech.domain
+package com.braisgabin.interview.newstech.home.domain
 
 import arrow.core.Either
 import com.braisgabin.interview.newstech.entity.Photo
