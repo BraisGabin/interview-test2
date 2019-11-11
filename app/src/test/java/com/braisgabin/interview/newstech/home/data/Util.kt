@@ -10,6 +10,7 @@ fun Any.getResourceAsBuffer(name: String): BufferedSource {
 }
 
 fun photo(
+  id: String,
   url: String = "url",
   thumbnailUrl: String = "thumbnail"
-) = Photo(url, thumbnailUrl)
+) = Photo(id, url, thumbnailUrl)

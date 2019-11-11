@@ -20,7 +20,7 @@ class PhotoMapperTest {
     assertThat(
       item,
       `is`(
-        Photo("https://url", "https://thumbnail")
+        Photo("1", "https://url", "https://thumbnail")
       )
     )
   }

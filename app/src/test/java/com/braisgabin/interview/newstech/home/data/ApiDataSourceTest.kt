@@ -36,8 +36,8 @@ class ApiDataSourceTest {
     dataSource.photos()
       .test()
       .assertValues(
-        Photo("url1", "thumbnail"),
-        Photo("url2", "thumbnail")
+        Photo("1", "url1", "thumbnail"),
+        Photo("2", "url2", "thumbnail")
       )
       .assertComplete()
 

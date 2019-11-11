@@ -16,13 +16,13 @@ class DataRepositoryTest {
 
   @Test
   fun photos() {
-    whenever(apiDataSource.photos()).doReturn(Flowable.just(photo("url1"), photo("url2")))
+    whenever(apiDataSource.photos()).doReturn(Flowable.just(photo("1"), photo("2")))
 
     repository.photos()
       .test()
       .assertValues(
-        listOf(photo("url1")).right(),
-        listOf(photo("url1"), photo("url2")).right()
+        listOf(photo("1")).right(),
+        listOf(photo("1"), photo("2")).right()
       )
   }
 
