@@ -4,10 +4,13 @@ import com.badoo.mvicore.feature.BaseFeature
 import com.braisgabin.interview.newstech.entity.Photo
 import io.reactivex.Observable
 
-class HomeFeature : BaseFeature<Wish, Action, Effect, State, Nothing>(
+class HomeFeature(
+  actor: HomeActor,
+  reducer: HomeReducer
+) : BaseFeature<Wish, Action, Effect, State, Nothing>(
   initialState = State.Loading,
-  actor = TODO(),
-  reducer = TODO(),
+  actor = actor,
+  reducer = reducer,
   bootstrapper = { Observable.just(Action.Reload) },
   wishToAction = { wish ->
     when (wish) {
