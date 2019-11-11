@@ -6,8 +6,9 @@ import arrow.core.right
 import com.braisgabin.interview.newstech.home.domain.Repository
 import com.braisgabin.interview.newstech.entity.Photo
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class DataRepository(
+class DataRepository @Inject constructor(
   private val dataSource: ApiDataSource
 ) : Repository {
 

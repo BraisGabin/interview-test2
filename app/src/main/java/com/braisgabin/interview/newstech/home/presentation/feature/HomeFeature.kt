@@ -4,9 +4,10 @@ import com.badoo.mvicore.feature.BaseFeature
 import com.braisgabin.interview.newstech.entity.Photo
 import com.braisgabin.interview.newstech.utils.Mockable
 import io.reactivex.Observable
+import javax.inject.Inject
 
 @Mockable
-class HomeFeature(
+class HomeFeature @Inject constructor(
   actor: HomeActor,
   reducer: HomeReducer
 ) : BaseFeature<Wish, Action, Effect, State, Nothing>(
